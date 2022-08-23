@@ -21,4 +21,4 @@ let currentVisitorName;
 
 const BIRTHDAY = '02.01.1994';
 
-const age = someCode(birthday);
+const age = someCode(BIRTHDAY); 
