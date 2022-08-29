@@ -19,6 +19,9 @@ console.log('[]]', isNaN([])); // false
 
 console.log('{}', isNaN({})); // true
 
+isNaN(new Date()); // false
+isNaN(new Date().toString()); // true
+
 console.log('5', Number.isNaN(5)); // false
 
 console.log(Number.isNaN('37')); // false: "37" is converted to the number 37 which is not NaN
