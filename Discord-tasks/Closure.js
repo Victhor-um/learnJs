@@ -23,7 +23,7 @@ function CreateCounter(num = 1) {
 
   return this.i;
 }
-const key = new CreateCounter(5tt);
+const key = new CreateCounter(5);
 debugger;
 log(key.decrement());
 
