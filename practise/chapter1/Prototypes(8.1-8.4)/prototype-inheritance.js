@@ -67,27 +67,27 @@ console.log(shogun.__proto__.__proto__ === Object.prototype);
 console.dir(shogun.__proto__.constructor.__proto__ === Function.prototype);
 console.log(shogun.__proto__.__proto__.__proto__ === null);
 
-log('1: ', {}.prototype === {}.__proto__); //  
+log('1: ', {}.prototype === {}.__proto__); //
 
 function ITkam() {}
-console.log('2: ', ITkam.prototype === ITkam.__proto__); // 
+console.log('2: ', ITkam.prototype === ITkam.__proto__); //
 
 function ITcub() {}
-console.log('3  ', ITcub.__proto__ === ITkam.__proto__); // 
-console.log('4 ', ITcub.prototype === ITkam.prototype); // 
+console.log('3  ', ITcub.__proto__ === ITkam.__proto__); //
+console.log('4 ', ITcub.prototype === ITkam.prototype); //
 
 let Component = (props) => {
   return `<div> I dont't know Prototype</div>`;
 };
-console.log('5', Component.prototype === Object.prototype); // 
+console.log('5', Component.prototype === Object.prototype); //
 
 let age = 18;
 
-log('6 ', age.prototype === Number.prototype); // 
-log('7 ', age.__proto__ === Number.prototype); // 
+log('6 ', age.prototype === Number.prototype); //
+log('7 ', age.__proto__ === Number.prototype); //
 
 class Hacker {}
-log('8 ', Hacker.__proto__ === Function.prototype); // 
-log('9 ', ITcub.__proto__ === ); // ? ITcub.__proto__ ===
+log('8 ', Hacker.__proto__ === Function.prototype); //
+//log('9 ', ITcub.__proto__ === ); // ? ITcub.__proto__ ===
 
-log('10 ', age.__proto__ === ); // ? age.__proto__ ===
+//log('10 ', age.__proto__ === ); // ? age.__proto__ ===
