@@ -33,10 +33,6 @@ class Electrical {
  * создание чайника с мощностью
  */
 class Kettle extends Electrical {
-  #Capacity = 2000; //Вместимость чайника
-  #waterMax = 1800; //Макс объем для кипячения
-  #waterMin = 500; // Мин объем для кипячения
-  #isBoiling = false; // Индикатор кипячения
   constructor(watt = 1500) {
     //watt - Мощность чайника 500-3000 дефолт 1500
     super();
@@ -46,6 +42,10 @@ class Kettle extends Electrical {
     this._temp = 0;
     this._watt = watt >= 500 && watt <= 3000 ? watt : 1500;
   }
+  #Capacity = 2000; //Вместимость чайника
+  #waterMax = 1800; //Макс объем для кипячения
+  #waterMin = 500; // Мин объем для кипячения
+  #isBoiling = false; // Индикатор кипячения
   addWater(number = 0) {
     if (number <= 0) {
       console.log(`Дебил нельзя налить ${number}мл. воды`);
