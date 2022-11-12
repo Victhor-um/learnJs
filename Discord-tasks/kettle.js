@@ -26,17 +26,10 @@ class Electrical {
     return this._isPlug;
   }
 }
-/**
- * todo
- * Кипячение скорость зависит от мощности и воды проверять розетку и баланс воды, вдруг идиот выльет
- * выключение кипячения по команде, отключение из розетки,
- * создание чайника с мощностью
- */
 class Kettle extends Electrical {
   constructor(watt = 1500) {
     //watt - Мощность чайника 500-3000 дефолт 1500
     super();
-    // console.log('this into kettle', this);
     this.name = Kettle; // нейм так записывать? или можно как-то проще\ЛУЧШЕ
     this._water = 0;
     this._temp = 0;
@@ -113,7 +106,6 @@ class Kettle extends Electrical {
         console.log(
           'Мало воды, не включен шнур, температура в чайнике больше выставленной или чайник уже кипятит'
         );
-        // clearInterval(this.boilTimer);
         this.#isBoiling = false;
         clearInterval(this.timerId);
         return;
@@ -124,15 +116,7 @@ class Kettle extends Electrical {
     if (this.#isBoiling) {
       this.#isBoiling = false;
       clearInterval(this.timerId);
-      //clearTimeout(this.timerId);
-      //learInterval(this.boilTimer);
     } else console.log('Чайник не кипятит, остынь браток');
-  }
-}
-class Sucker extends Electrical {
-  constructor() {
-    super();
-    this.name = Sucker;
   }
 }
 let k = new Kettle(550);
@@ -149,10 +133,6 @@ k.reduceWater(1200);
 k.reduceWater(4444);
 s.addWater(1330);
 console.log(s.checkWater());
-//debugger;
-//s.startBoil(50);
-//s.stopBoil();
-let l = new Sucker();
 // l.plugOn();
 // l.plugOff();
 // startBoil(temp = 100) {
