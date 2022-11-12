@@ -83,7 +83,7 @@ class Kettle extends Electrical {
   }
 
   startBoil(temp = 100) {
-    temp = Math.min(temp, 100);
+    temp = Math.min(Math.round(temp), 100);
     if (this.#isBoiling) {
       console.log('Чайник уже кипятит');
       return;
@@ -102,9 +102,12 @@ class Kettle extends Electrical {
     this.#isBoiling = true;
     this.timerId = setInterval(() => {
       if (this.checkWater() && this.isPlug() && this._temp < temp) {
+        console.log(this._temp, '°C');
+        this._temp += 1;
         if (this._temp >= temp) {
           console.log(`Кипячение закончено температура ${this._temp} °C`);
           this.stopBoil();
+          return;
         }
       } else {
         console.log(
@@ -113,9 +116,8 @@ class Kettle extends Electrical {
         // clearInterval(this.boilTimer);
         this.#isBoiling = false;
         clearInterval(this.timerId);
+        return;
       }
-      console.log(this._temp, '°C');
-      this._temp += 1;
     }, (this._water / this._watt) * 150);
   }
   stopBoil() {
