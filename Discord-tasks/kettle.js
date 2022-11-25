@@ -9,24 +9,24 @@
  * watt - Мощность чайника 500-3000 дефолт 1500
  */
 class Electrical {
-  this.#isPlug = false;
   constructor() {
-    
+    this.isPlug = false;
   }
 
   plugOn() {
     // Флаг вставлена ли вилка(в глаз)
-    this.#isPlug = true;
+    this.isPlug = true;
     console.log(`Прибор ${this.name.name} включен в сеть`); // хз как избавиться от name.name
   }
   plugOff() {
-    this.#isPlug = false;
+    this.isPlug = false;
     console.log(`Прибор ${this.name.name} выключен из сети`);
   }
   isPlug() {
     return this.#isPlug;
   }
 }
+
 class Kettle extends Electrical {
   constructor(watt = 1500) {
     //watt - Мощность чайника 500-3000 дефолт 1500
