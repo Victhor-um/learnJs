@@ -1,6 +1,8 @@
 //Что выведет код ниже?
-
+// Консоль логи выполнятся последовательно ибо КОД внутри промиса выполняеся синхронно
+console.log('before promise');
 let promise = new Promise(function (resolve, reject) {
+  console.log('inside promise');
   resolve(1);
 
   setTimeout(() => {
@@ -9,11 +11,9 @@ let promise = new Promise(function (resolve, reject) {
 });
 debugger;
 promise.then(console.log('3'));
-const client = {
-  name: 'Mr. Smith',
-  age: 21,
-};
+console.log('after promise');
 
+//Функция delay(ms) должна возвращать промис, который перейдёт в состояние "выполнен" через ms миллисекунд, так что бы мы могли добавить к нему .then
 function delay(ms) {
   return new Promise(function (resolve, reject) {
     setTimeout(() => {
