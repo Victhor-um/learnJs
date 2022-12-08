@@ -20,3 +20,27 @@ let loadScriptPromise = function (src) {
   });
 };
 //Использование loadScriptPromise('path/scirpt.js').then(...)
+
+//promisify(f) она принимает функцию для промисификации f и возвращает функцию-обертку.
+
+function promisify(f) {
+  return function (...args) {
+    //возвращает функцию-обертку
+    return new Promise((resolve, reject) => {
+      function callback(err, result) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      }
+      args.push(callback);
+
+      f.call(this, ...args);
+    });
+  };
+}
+
+//Использование:
+// let loadScriptPromiseTwo = promisify(loadScript);
+// loadScriptPromiseTwo(...).then(...);
