@@ -15,6 +15,12 @@ function* generateSequence3() {
   return 3;
 }
 // Можно по разному, но первый вариант выглядит понятней\удобней ИМХО
+let gen3 = generateSequence3();
+for (let i = 0; i < 2; i++) {
+  console.log('genSequence3', gen3.next());
+}
+console.log('after for seq3', gen3.next());
+console.log('after for seq3 ended', gen3.next());
 
 let sequence = [0, ...generateSequence()];
 
@@ -39,3 +45,5 @@ let generator = pseudoRandom(1);
 console.log(generator.next().value); // 16807
 console.log(generator.next().value); // 282475249
 console.log(generator.next().value); // 1622650073
+console.log(generator.next().value); // 984943658
+console.log(generator.next().value); // 1144108930
