@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom-naviagtion</title>
+  </head>
+  <body>
+    <div>Users:</div>
+    <ul>
+      <li>John</li>
+      <li>Pete</li>
+    </ul>
+    <script>
+      const div = document.body.firstElementChild;
+      console.log('div: ', div);
+      const ul = document.body.children[1];
+      console.log('ul: ', ul);
+      const secondli = document.body.children[1].lastElementChild;
+      console.log('secondli: ', secondli);
+    </script>
+  </body>
+</html>
